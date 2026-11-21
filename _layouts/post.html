@@ -1,17 +1,54 @@
 ---
 layout: default
 ---
+{% assign ads = 0 %}{% for key in page.affiliate %}{% assign a = site.data.affiliates[key] %}{% if a and a.url != "" %}{% assign ads = ads | plus: 1 %}{% endif %}{% endfor %}
 <article class="post">
-  {% assign ads = 0 %}{% for key in page.affiliate %}{% assign a = site.data.affiliates[key] %}{% if a and a.url != "" %}{% assign ads = ads | plus: 1 %}{% endif %}{% endfor %}
-  {% if ads > 0 %}<p class="pr-badge">PR：この記事には広告が含まれます</p>{% endif %}
-  <p class="meta">{{ page.date | date: "%Y年%-m月%-d日" }}</p>
-  <h1>{{ page.title }}</h1>
-  {% if page.image %}<img class="cover" src="{{ page.image | relative_url }}" alt="">{% endif %}
-  <div class="body">{{ content }}</div>
-  {% include affiliate.html %}
-  {% include consult.html %}
+  <header class="post-head">
+    <div class="post-head-grid" aria-hidden="true"></div>
+    <div class="shell post-head-inner">
+      <p class="crumb"><a href="{{ '/' | relative_url }}">記事一覧</a></p>
+      <h1>{{ page.title }}</h1>
+      <p class="row-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%-m月%-d日" }}</time>
+        <span>約{{ content | strip_html | size | divided_by: 600 | floor | plus: 1 }}分で読めます</span>
+        {% if ads > 0 %}<span class="pr">PR</span>{% endif %}
+      </p>
+    </div>
+  </header>
+
+  <div class="shell post-layout">
+    <nav class="toc" aria-label="この記事の目次" hidden>
+      <p class="toc-title">目次</p>
+      <ol></ol>
+    </nav>
+    <div class="post-main">
+      {% if ads > 0 %}<p class="pr-note">この記事には広告（アフィリエイトリンク）が含まれます。</p>{% endif %}
+      <div class="prose">{{ content }}</div>
+      {% include affiliate.html %}
+      {% include consult.html %}
+    </div>
+  </div>
 </article>
-<section class="more">
+
+<section class="more shell">
   <h2>ほかの記事</h2>
-  <ul>{% for p in site.posts limit:5 %}{% if p.url != page.url %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>{% endif %}{% endfor %}</ul>
+  <ul class="rows">
+    {% for p in site.posts limit:6 %}{% if p.url != page.url %}
+    <li><a href="{{ p.url | relative_url }}"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y.%m.%d" }}</time><span class="row-title">{{ p.title }}</span></a></li>
+    {% endif %}{% endfor %}
+  </ul>
 </section>
+
+<script>
+(function () {
+  var hs = document.querySelectorAll('.prose h2');
+  if (hs.length < 3) return;
+  var toc = document.querySelector('.toc'), ol = toc.querySelector('ol');
+  hs.forEach(function (h, i) {
+    if (!h.id) h.id = 's' + (i + 1);
+    var li = document.createElement('li'), a = document.createElement('a');
+    a.href = '#' + h.id; a.textContent = h.textContent; li.appendChild(a); ol.appendChild(li);
+  });
+  toc.hidden = false;
+})();
+</script>

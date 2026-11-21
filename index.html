@@ -1,14 +1,93 @@
 ---
 layout: default
-title: 記事一覧
+title: オフィス移転・改装を、はじめて担当する方へ
 ---
-<section class="hero">
-  <p class="label">OFFICE RELOCATION NOTE</p>
-  <h1>オフィス移転・改装を、<br>はじめて担当する方へ。</h1>
-  <p>移転は数年に一度の仕事なので、社内に経験者がいないことがほとんどです。元請けとして移転を担当してきた現場のPMが、何を、どの順番で、何に気をつけて進めるかを書いています。</p>
+<section class="hero shell">
+  <div class="hero-text">
+    <h1><span class="nb">オフィス移転を、</span><span class="nb">はじめて任された方へ。</span></h1>
+    <p class="lead">移転は数年に一度の仕事です。社内に経験者がいないまま、通常業務と並行して進めることになります。</p>
+    <p class="lead">このサイトでは、移転と内装を元請けとして担当してきた現場のPMが、何を、どの順番で、何に気をつけて進めるかを書いています。</p>
+    <a class="btn-primary" href="#articles">記事を読む</a>
+  </div>
+  <figure class="hero-plan" aria-hidden="true">
+    <svg viewBox="0 0 520 420" role="presentation">
+      <g class="plan-walls">
+        <path d="M40 40 H480 V380 H40 Z"/>
+        <path d="M40 160 H170 M220 160 H260 V40"/>
+        <path d="M330 40 V250 H480"/>
+        <path d="M260 160 V210"/>
+      </g>
+      <g class="plan-doors">
+        <path d="M170 160 A50 50 0 0 1 220 110"/><path d="M170 160 L220 110" class="leaf"/>
+        <path d="M330 250 A45 45 0 0 0 375 295" /><path d="M330 250 L375 295" class="leaf"/>
+      </g>
+      <g class="plan-furniture">
+        <rect x="80" y="70" width="140" height="56" rx="4"/>
+        <circle cx="70" cy="98" r="9"/><circle cx="230" cy="98" r="9"/>
+        <circle cx="115" cy="60" r="8"/><circle cx="150" cy="60" r="8"/><circle cx="185" cy="60" r="8"/>
+        <circle cx="115" cy="136" r="8"/><circle cx="150" cy="136" r="8"/><circle cx="185" cy="136" r="8"/>
+        <rect x="80" y="220" width="64" height="40"/><rect x="144" y="220" width="64" height="40"/>
+        <rect x="80" y="260" width="64" height="40"/><rect x="144" y="260" width="64" height="40"/>
+        <rect x="80" y="320" width="64" height="40"/><rect x="144" y="320" width="64" height="40"/>
+        <rect x="360" y="80" width="80" height="80" rx="40"/>
+        <rect x="355" y="300" width="100" height="50" rx="25"/>
+      </g>
+      <g class="plan-felt">
+        <rect x="270" y="60" width="44" height="80" rx="3"/>
+        <rect x="350" y="180" width="110" height="48" rx="3"/>
+      </g>
+      <g class="plan-dims">
+        <path d="M40 405 H480 M40 398 V412 M480 398 V412"/>
+        <text x="260" y="400">14,400</text>
+        <path d="M498 40 V380 M491 40 H505 M491 380 H505"/>
+        <text x="510" y="214" transform="rotate(90 510 214)">10,800</text>
+      </g>
+      <g class="plan-labels">
+        <text x="150" y="190">会議室</text>
+        <text x="270" y="300">執務エリア</text>
+        <text x="405" y="70">集中ブース</text>
+        <text x="405" y="370">ラウンジ</text>
+      </g>
+    </svg>
+  </figure>
 </section>
-<ul class="list">
-{% for post in site.posts %}
-  <li><a href="{{ post.url | relative_url }}"><span class="date">{{ post.date | date: "%Y.%m.%d" }}</span><span class="t">{{ post.title }}</span></a></li>
-{% endfor %}
-</ul>
+
+<section id="articles" class="articles shell">
+  <div class="articles-head">
+    <h2>記事</h2>
+    <p>{{ site.posts.size }}本・毎朝更新しています</p>
+  </div>
+  {% assign first = site.posts.first %}
+  {% if first %}
+  <a class="feature" href="{{ first.url | relative_url }}">
+    <div class="feature-grid" aria-hidden="true">
+      <svg viewBox="0 0 200 160"><path class="w" d="M30 30 H170 V130 H30 Z M30 80 H70 M100 80 H120 V30"/><path class="d" d="M70 80 A30 30 0 0 1 100 50"/><path class="l" d="M70 80 L100 50"/><rect class="f" x="128" y="92" width="34" height="30" rx="2"/><path class="m" d="M30 146 H170 M30 141 V151 M170 141 V151"/></svg>
+    </div>
+    <div class="feature-body">
+      <p class="feature-kicker">新しい記事</p>
+      <h3>{{ first.title }}</h3>
+      <p class="feature-desc">{{ first.description }}</p>
+      <p class="row-meta"><time datetime="{{ first.date | date_to_xmlschema }}">{{ first.date | date: "%Y年%-m月%-d日" }}</time><span>約{{ first.content | strip_html | size | divided_by: 600 | floor | plus: 1 }}分で読めます</span></p>
+    </div>
+  </a>
+  {% endif %}
+  {% if site.posts.size > 1 %}
+  <ul class="rows">
+    {% for post in site.posts offset:1 %}
+    <li><a href="{{ post.url | relative_url }}">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+      <span class="row-title">{{ post.title }}</span>
+      <span class="row-time">約{{ post.content | strip_html | size | divided_by: 600 | floor | plus: 1 }}分</span>
+    </a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+<section class="writer shell">
+  <div class="writer-inner">
+    <h2>書いている人について</h2>
+    <p>オフィスの移転と内装を、提案から完成まで元請けとして担当してきました。物件選び、レイアウト、工事、引っ越し、原状回復まで、移転の一通りを現場で見ています。</p>
+    <p>記事では、一般論よりも「どこでつまずきやすいか」「何を基準に決めるか」を中心に書いています。事例は、会社が特定できないように内容を変えています。</p>
+  </div>
+</section>
