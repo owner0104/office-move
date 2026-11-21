@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="post">
+  {% assign ads = 0 %}{% for key in page.affiliate %}{% assign a = site.data.affiliates[key] %}{% if a and a.url != "" %}{% assign ads = ads | plus: 1 %}{% endif %}{% endfor %}
+  {% if ads > 0 %}<p class="pr-badge">PR：この記事には広告が含まれます</p>{% endif %}
+  <p class="meta">{{ page.date | date: "%Y年%-m月%-d日" }}</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.image %}<img class="cover" src="{{ page.image | relative_url }}" alt="">{% endif %}
+  <div class="body">{{ content }}</div>
+  {% include affiliate.html %}
+  {% include consult.html %}
+</article>
+<section class="more">
+  <h2>ほかの記事</h2>
+  <ul>{% for p in site.posts limit:5 %}{% if p.url != page.url %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>{% endif %}{% endfor %}</ul>
+</section>

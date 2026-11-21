@@ -1,0 +1,9 @@
+{% assign shown = 0 %}{% for key in page.affiliate %}{% assign a = site.data.affiliates[key] %}{% if a and a.url != "" %}{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+{% if shown > 0 %}
+<aside class="aff">
+  <p class="aff-note">PR：この枠には広告リンクが含まれます</p>
+  {% for key in page.affiliate %}{% assign a = site.data.affiliates[key] %}{% if a and a.url != "" %}
+  <a class="aff-item" href="{{ a.url }}" rel="sponsored noopener" target="_blank"><strong>{{ a.label }}</strong><span>{{ a.text }}</span></a>
+  {% endif %}{% endfor %}
+</aside>
+{% endif %}

@@ -1,0 +1,14 @@
+---
+layout: default
+title: 記事一覧
+---
+<section class="hero">
+  <p class="label">OFFICE RELOCATION NOTE</p>
+  <h1>オフィス移転・改装を、<br>はじめて担当する方へ。</h1>
+  <p>移転は数年に一度の仕事なので、社内に経験者がいないことがほとんどです。元請けとして移転を担当してきた現場のPMが、何を、どの順番で、何に気をつけて進めるかを書いています。</p>
+</section>
+<ul class="list">
+{% for post in site.posts %}
+  <li><a href="{{ post.url | relative_url }}"><span class="date">{{ post.date | date: "%Y.%m.%d" }}</span><span class="t">{{ post.title }}</span></a></li>
+{% endfor %}
+</ul>

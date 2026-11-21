@@ -1,0 +1,14 @@
+title: "空間を、デザインする。"
+description: "オフィス移転・改装を担当する総務・人事の方へ。元請けとして移転を担当してきた現場のPMが、実務の順番と判断基準を書いています。"
+lang: ja
+url: ""          # 例: https://xxxx.github.io  （公開後に自動で設定します）
+baseurl: ""
+author: "空間を、デザインする。編集部"
+contact_form_url: ""   # 移転相談フォーム（Googleフォーム等）のURL
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+permalink: /:year/:month/:slug/
+timezone: Asia/Tokyo
+exclude: [automation, README.md, CLAUDE.md]

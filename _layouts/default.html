@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+{% feed_meta %}
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <nav><a href="{{ '/' | relative_url }}">記事一覧</a><a href="{{ '/about/' | relative_url }}">このサイトについて</a></nav>
+</div></header>
+<main class="wrap">{{ content }}</main>
+<footer class="site-footer"><div class="wrap">
+  <p>{{ site.title }}</p>
+  <p class="small">当サイトの記事には、広告（アフィリエイトリンク）を含むものがあります。広告を含む記事には「PR」と表示しています。</p>
+  <p class="small">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+</div></footer>
+</body>
+</html>
