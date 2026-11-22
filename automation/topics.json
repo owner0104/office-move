@@ -21,7 +21,9 @@
     "title": "移転スケジュールは何か月前から動くべきか。12か月の逆算表",
     "angle": "解約予告期間から逆算する考え方。月ごとのやること",
     "type": "free",
-    "status": "todo"
+    "status": "done",
+    "slug": "office-move-schedule",
+    "postedAt": "2026-11-23T09:00:00+09:00"
   },
   {
     "id": 4,
