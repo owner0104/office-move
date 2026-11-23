@@ -30,7 +30,9 @@
     "title": "A工事・B工事・C工事の違いを、総務の方向けにやさしく説明します",
     "angle": "B工事で費用が想定外に上がる仕組みと、交渉の余地がある部分",
     "type": "free",
-    "status": "todo"
+    "status": "done",
+    "slug": "abc-construction",
+    "postedAt": "2026-11-24T09:00:00+09:00"
   },
   {
     "id": 5,
