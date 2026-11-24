@@ -12,4 +12,5 @@ plugins:
   - jekyll-seo-tag
 permalink: /:year/:month/:slug/
 timezone: Asia/Tokyo
+future: true   # 定期実行が公開日時より前に push しても記事が出るようにする
 exclude: [automation, README.md, CLAUDE.md]
