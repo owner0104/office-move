@@ -57,7 +57,9 @@
     "title": "AIに見積書を読ませて、抜け漏れを見つける方法",
     "angle": "ClaudeやChatGPTに見積書を渡すときの指示文の実例。注意点（機密情報の扱い）",
     "type": "free",
-    "status": "todo"
+    "status": "done",
+    "slug": "ai-quote-check",
+    "postedAt": "2026-11-27T09:00:00+09:00"
   },
   {
     "id": 8,
