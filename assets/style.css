@@ -178,3 +178,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--felt); outline-
   .brand { font-size: 15px; letter-spacing: .04em; }
   .hero h1 { font-size: 27px; }
 }
+
+/* お問い合わせフォーム */
+.contact-form { margin-top: 32px; padding: 32px; background: var(--paper); border: 1px solid var(--rule); }
+.contact-form label { display: block; margin: 20px 0 6px; font-size: 15px; font-weight: 500; line-height: 1.6; }
+.contact-form label:first-of-type { margin-top: 0; }
+.contact-form input, .contact-form select, .contact-form textarea { display: block; width: 100%; box-sizing: border-box; padding: 10px 12px; font: inherit; font-size: 16px; line-height: 1.6; color: var(--ink); background: #fff; border: 1px solid #b9bdb9; border-radius: 2px; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: 2px solid var(--felt); outline-offset: 1px; border-color: var(--felt); }
+.contact-form textarea { resize: vertical; }
+.contact-form .req, .contact-form .opt { margin-left: 6px; padding: 1px 6px; font-size: 12px; border-radius: 2px; }
+.contact-form .req { background: var(--felt); color: #fff; }
+.contact-form .opt { background: var(--felt-soft); color: var(--felt); }
+.contact-form .form-note { margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: var(--graphite); }
+.contact-form button { border: 0; cursor: pointer; font: inherit; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 640px) { .contact-form { padding: 22px 16px; } }

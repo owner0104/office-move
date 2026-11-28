@@ -4,7 +4,7 @@ lang: ja
 url: "https://owner0104.github.io"
 baseurl: "/office-move"
 author: "空間を、デザインする。編集部"
-contact_form_url: ""   # 移転相談フォーム（Googleフォーム等）のURL
+contact_form_url: "/contact/"   # 移転相談フォームのURL（サイト内は /contact/ のように書く。外部フォームなら https:// から）
 adsense_client: ""     # Google AdSense の審査に通ったら ca-pub-XXXXXXXX を入れると、自動広告が表示されます
 plugins:
   - jekyll-feed

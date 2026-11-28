@@ -1,0 +1,42 @@
+---
+layout: page
+title: お問い合わせ
+permalink: /contact/
+description: "オフィス移転・改装の進め方のご相談や、記事へのご意見はこちらからお送りください。"
+---
+<h1>お問い合わせ</h1>
+
+<p>オフィス移転・改装の進め方のご相談や、記事へのご意見・誤りのご指摘は、このフォームからお送りください。「何から始めればいいか分からない」という段階のご相談でも大丈夫です。</p>
+<p>内容を確認のうえ、ご入力いただいたメールアドレスへ返信します。返信までに数日いただくことがあります。</p>
+
+<form class="contact-form" action="https://formsubmit.co/owner0104@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="【空間を、デザインする。】お問い合わせが届きました">
+  <input type="hidden" name="_next" value="{{ site.url }}{{ '/contact/thanks/' | relative_url }}">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="true">
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <label for="cf-name">お名前 <span class="req">必須</span></label>
+  <input id="cf-name" type="text" name="お名前" required autocomplete="name">
+
+  <label for="cf-company">会社名 <span class="opt">任意</span></label>
+  <input id="cf-company" type="text" name="会社名" autocomplete="organization">
+
+  <label for="cf-email">メールアドレス <span class="req">必須</span></label>
+  <input id="cf-email" type="email" name="email" required autocomplete="email">
+
+  <label for="cf-type">お問い合わせの種類 <span class="req">必須</span></label>
+  <select id="cf-type" name="種類" required>
+    <option value="">選んでください</option>
+    <option>移転・改装の進め方の相談</option>
+    <option>記事へのご意見・誤りのご指摘</option>
+    <option>その他</option>
+  </select>
+
+  <label for="cf-message">内容 <span class="req">必須</span></label>
+  <textarea id="cf-message" name="内容" rows="8" required placeholder="例：来年の春に移転予定で、何から始めればよいか相談したいです。"></textarea>
+
+  <p class="form-note">ご入力いただいた内容は、お問い合わせへの返信のためだけに使います。送信には外部のフォーム送信サービス（FormSubmit）を利用しています。会社名や個人名など、書きにくい情報は伏せていただいて構いません。</p>
+
+  <button type="submit" class="btn-primary">送信する</button>
+</form>
